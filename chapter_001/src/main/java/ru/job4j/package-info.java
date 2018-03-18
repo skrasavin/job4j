@@ -4,4 +4,4 @@
 *class Calculate.
 *первая программа Hello World
 */
-package java.ru.job4j;
+package ru.job4j;
