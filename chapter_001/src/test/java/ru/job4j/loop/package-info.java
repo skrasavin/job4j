@@ -1,6 +1,6 @@
 /**
 *@autor - skrasavin.
 *@since - 25.03.2018.
-*тест для класса Counter
+*Тесты для циклов.
 */
 package ru.job4j.loop;
