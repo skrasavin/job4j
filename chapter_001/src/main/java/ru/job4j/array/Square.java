@@ -12,10 +12,8 @@ public class Square {
 	*/
 	public int[] calculate(int bound) {
 		int[] rst = new int[bound];
-		int count = 0;
 		for (int num = 1; num != rst.length + 1; num++) {
-			rst[count] = num * num;
-			count++;
+			rst[num - 1] = num * num;
 		}
 		return rst;
 	}
