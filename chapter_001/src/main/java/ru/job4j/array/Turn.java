@@ -10,16 +10,11 @@ public class Turn {
 	*@return - arr;
 	*/
 	public int[] back(int[] array) {
-		int count = 0;
-		int help = 0;
-		for (int num = array.length - 1; num >= 0; num--) {
-			if (array[num] == array[count]) {
-				break;
-			}
-			help = array[num];
-			array[num] = array[count];
-			array[count] = help;
-			count++;
+
+		for (int i = 0; i < array.length / 2; i++) {
+			int help = array[i];
+			array[i] = array[array.length - i - 1];
+			array[array.length - i - 1] = help;
 		}
 		return array;
 	}
