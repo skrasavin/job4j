@@ -10,20 +10,16 @@ public class BubbleSort {
 	*@return - result - arr[].
 	*/
 	public int[] sort(int[] array) {
-		int[] arr = array;
-		int help = 0;
-		for (int x = 0; x != arr.length; x++) {
-			for (int index = 0; index != arr.length; index++) {
-				if (index + 1 >= arr.length) {
-					break;
-				}
-				if (arr[index] > arr[index + 1]) {
-					help = arr[index];
-					arr[index] = arr[index + 1];
-					arr[index + 1] = help;
+		for (int x = 0; x != array.length; x++) {
+			for (int index = 0; index != array.length - 1; index++) {
+				int help = 0;
+				if (array[index] > array[index + 1]) {
+					help = array[index];
+					array[index] = array[index + 1];
+					array[index + 1] = help;
 				}
 			}
 		}
-		return arr;
+		return array;
 	}
 }
