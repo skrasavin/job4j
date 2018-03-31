@@ -12,8 +12,8 @@ public class BubbleSort {
 	public int[] sort(int[] array) {
 		for (int x = 0; x != array.length; x++) {
 			for (int index = 0; index != array.length - 1; index++) {
-				int help = array[index];
 				if (array[index] > array[index + 1]) {
+					int help = array[index];
 					help = array[index];
 					array[index] = array[index + 1];
 					array[index + 1] = help;
