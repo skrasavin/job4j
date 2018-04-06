@@ -2,38 +2,55 @@ package ru.job4j.chap2;
 
 import java.util.*;
 
+/**
+ * хранилище заявок.
+ * @author  - skrasavin.
+ * @since  - 6.04.2018.
+ */
 public class Tracker {
-	
-	private Item[] items = new Item[100];
+	/**
+	 * массив для хранения заявок.
+	 * счетчик.
+	 * класс для определения рандомного значения id.
+     */
+	public Item[] items = new Item[100];
 	private int position = 0;
 	public static final Random RN = new Random();
-	
-	public Item add(Item item) {
+
+	/**
+	 *добавления заявки.
+     */
+	public void add(Item item) {
 		item.setId(this.generateId());
 		this.items[position++] = item;
-		return item;
 	}
-	
-	public void replace(String id, Item item) {
+	/**
+	 *смена заявки на другую после ввовда имени и новой заявки.
+	 */
+	public void replace(String name, Item item) {
 		for (int index = 0; index != this.position; index++) {
-			if (items[index].getId().equals(id)) {
+			if (items[index].getName().equals(name)) {
 			items[index] = item;
 			}
 		}
 	}
+	/**
+	 *удаления заявки.
+	 */
 	public void delete(String id) {
-		int unique = items.length;
-		for (int out = 0; out < unique; out++) {
-			for (int index = 0; index != this.position; index++) {
-				if (items[index].getId().equals(id)) {
-					items[index] = null;
-					items[index] = items[unique - 1];
-					unique--;
+		int unique = position;
+			for (int inner = 0; inner < unique; inner++) {
+				if (items[inner].getId().equals(id)) {
+					items[inner] = items[unique - 1];
+					items[unique - 1] = null;
+					break;
 				}
 			}
-		}
-		items = Arrays.copyOf(items, unique);	
+			this.position--;
 	}
+	/**
+	 *показать все заявки.
+	 */
 	public Item[] findAll() {
 		Item[] result = new Item[this.position];
 		for (int index = 0; index != this.position; index++) {
@@ -41,16 +58,22 @@ public class Tracker {
 		}
 		return result;
 	}
+	/**
+	 *найти заявку по имени.
+	 */
 	public Item[] findByName(String key) {
-		Item[] result = null;
-		for (Item item : items) {
-			if (item != null && item.getName().equals(key)) {
-				result[position] = item;
-				break;
+		Item[] result = new Item[this.position];
+		int count = 0;
+		for (int index = 0; index != this.position; index++) {
+			if (items[index].getName().equals(key)) {
+				result[count++] = items[index];
 			}
 		}
-		return result;
+		return Arrays.copyOf(result, count);
 	}
+	/**
+	 *найти заявку по Id.
+	 */
 	public Item	findById(String id) {
 		Item result = null;
 		for (Item item : items) {
@@ -61,8 +84,10 @@ public class Tracker {
 		}
 		return result;
 	}
+	/**
+	 *сгенерировать случайный номер для Id..
+	 */
 	public String generateId() {
 		return String.valueOf(System.currentTimeMillis() + RN.nextInt());
 	}
-	
 }

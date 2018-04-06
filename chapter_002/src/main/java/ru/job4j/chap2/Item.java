@@ -1,13 +1,20 @@
 package ru.job4j.chap2;
-
+/**
+ * класс для создания заявки.
+ * @author  - skrasavin.
+ * @since - 6.05.2018.
+ */
 public class Item {
+	/**
+	 * поля класса характеризиующие заявку.
+     */
 	private String name;
 	public String description;
 	public long create;
 	public String id;
 	public Item() {
 	}
-	
+
 	public Item(String name, String description, long create) {
 		this.name = name;
 		this.description = description;
@@ -16,7 +23,7 @@ public class Item {
 	public String getName() {
 		return name;
 	}
-	public String getdescription() {
+	public String getDescription() {
 		return description;
 	}
 	public long getCreate() {
