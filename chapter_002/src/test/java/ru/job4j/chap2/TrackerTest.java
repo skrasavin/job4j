@@ -1,4 +1,4 @@
-package ru.job4j.chap2;
+/**package ru.job4j.chap2;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
@@ -72,3 +72,4 @@ public class TrackerTest {
     }
 
 }
+ */

@@ -14,33 +14,49 @@ public class Tracker {
 	 * класс для определения рандомного значения id.
      */
 	public Item[] items = new Item[100];
-	private int position = 0;
+	public int position = 0;
 	public static final Random RN = new Random();
+	private Scanner scanner = new Scanner(System.in);
 
 	/**
 	 *добавления заявки.
      */
-	public void add(Item item) {
+	public Item add(Item item) {
 		item.setId(this.generateId());
+		System.out.println("Please enter the name");
+		item.setName(scanner.nextLine());
+		System.out.println("Please enter descriprion");
+		item.setDescription(scanner.nextLine());
 		this.items[position++] = item;
+		return item;
 	}
+	public Item createItem(Item item) {
+		item.setId(this.generateId());
+		System.out.println("Please enter the name");
+		item.setName(scanner.nextLine());
+		System.out.println("Please enter descriprion");
+		item.setDescription(scanner.nextLine());
+		return item;
+	}
+
 	/**
 	 *смена заявки на другую после ввовда имени и новой заявки.
 	 */
 	public void replace(String name, Item item) {
 		for (int index = 0; index != this.position; index++) {
 			if (items[index].getName().equals(name)) {
-			items[index] = item;
+				items[index] = item;
+				break;
 			}
 		}
 	}
 	/**
 	 *удаления заявки.
 	 */
-	public void delete(String id) {
+	public void delete(String name) {
 		int unique = position;
 			for (int inner = 0; inner < unique; inner++) {
-				if (items[inner].getId().equals(id)) {
+				if (items[inner].getName().equals(name)) {
 					items[inner] = items[unique - 1];
 					items[unique - 1] = null;
 					break;
@@ -74,10 +90,10 @@ public class Tracker {
 	/**
 	 *найти заявку по Id.
 	 */
-	public Item	findById(String id) {
+	public Item	findById(String description) {
 		Item result = null;
 		for (Item item : items) {
-			if (item != null && item.getId().equals(id)) {
+			if (item != null && item.getDescription().equals(description)) {
 				result = item;
 				break;
 			}
