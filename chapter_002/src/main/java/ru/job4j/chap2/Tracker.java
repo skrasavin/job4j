@@ -23,22 +23,9 @@ public class Tracker {
      */
 	public Item add(Item item) {
 		item.setId(this.generateId());
-		System.out.println("Please enter the name");
-		item.setName(scanner.nextLine());
-		System.out.println("Please enter descriprion");
-		item.setDescription(scanner.nextLine());
 		this.items[position++] = item;
 		return item;
 	}
-	public Item createItem(Item item) {
-		item.setId(this.generateId());
-		System.out.println("Please enter the name");
-		item.setName(scanner.nextLine());
-		System.out.println("Please enter descriprion");
-		item.setDescription(scanner.nextLine());
-		return item;
-	}
-
 	/**
 	 *смена заявки на другую после ввовда имени и новой заявки.
 	 */
