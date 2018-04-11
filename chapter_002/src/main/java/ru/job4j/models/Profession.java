@@ -7,8 +7,8 @@ public class Profession {
 	public Diagnose heal(Pacient pacient) {
 		return new Diagnose();
 	}
-	public BuildingSite build(Home home) {
-		return new BuildingSite();
+	public CurrentResult build(Home home) {
+		return new CurrentResult();
 	}
 	public Exam teach(Student student) {
 		return new Exam();
