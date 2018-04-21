@@ -13,7 +13,6 @@ public class StartUI {
 	public void start() {
 		Tracker tracker = new Tracker();
 		ConsoleInput ci = new ConsoleInput();
-		StartUI st = new StartUI(new StubInput());
 		final String ADD = "0";
 		final String SHOWITEMS = "1";
 		final String EDIT = "2";
@@ -28,7 +27,7 @@ public class StartUI {
 			switch (num) {
      			case ADD:
      					//Item unit = createItem();
-						Item unit = createItems(input.ask(""),input.ask(""));
+						Item unit = createItems();
 						tracker.add(unit);
 						break;
 				case SHOWITEMS:
@@ -82,9 +81,9 @@ public class StartUI {
 		String description = ci.ask("Please, enter description");
 		return new Item(name, description);
 	}
-	public Item createItems(String nam, String desc) {
-		String name = nam;
-		String description = desc;
+	public Item createItems() {
+		String name = input.ask("Please, enter name");
+		String description = input.ask("Please, enter description");
 		return new Item(name, description);
 	}
 }
