@@ -12,7 +12,7 @@ public class PaintTest {
     @Test
     public void whenDrawSquare() {
         // получаем ссылку на стандартный вывод в консоль.
-        PrintStream stdout = System.out;
+        //PrintStream stdout = System.out;
         // Создаем буфер для хранения вывода.
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         //Заменяем стандартный вывод на вывод в пямять для тестирования.
@@ -33,6 +33,6 @@ public class PaintTest {
                 )
         );
         // возвращаем обратно стандартный вывод в консоль.
-        System.setOut(stdout);
+        //System.setOut(stdout);
     }
 }
