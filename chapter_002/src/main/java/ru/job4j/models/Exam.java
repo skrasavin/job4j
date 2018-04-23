@@ -6,6 +6,6 @@ package ru.job4j.models;
 public class Exam {
     String name;
     int highestGrade;
-    public void startExam(int highestGrade){
+    public void startExam(int highestGrade) {
     }
 }

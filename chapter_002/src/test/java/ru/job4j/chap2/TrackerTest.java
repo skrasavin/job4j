@@ -1,4 +1,4 @@
-/**package ru.job4j.chap2;
+package ru.job4j.chap2;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
@@ -8,7 +8,7 @@ public class TrackerTest {
 	@Test
     public void  whenAddItemToItems() {
         Tracker tracker = new Tracker();
-        Item item = new Item("Igor", "Manager", 1220L);
+        Item item = new Item("Igor", "Manager");
         tracker.add(item);
         String name = "Igor";
         assertThat(name, is(tracker.items[0].getName()));
@@ -16,8 +16,8 @@ public class TrackerTest {
     @Test
     public void  whenReplaceItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("Igor", "Manager", 1220L);
-        Item itemTest = new Item("Valeriy", "Builder", 1312L);
+        Item item = new Item("Igor", "Manager");
+        Item itemTest = new Item("Valeriy", "Builder");
         tracker.add(item);
         tracker.replace("Igor", itemTest);
         String name = "Valeriy";
@@ -26,8 +26,8 @@ public class TrackerTest {
     @Test
     public void  whenItemDelete() {
         Tracker tracker = new Tracker();
-        Item item = new Item("Igor", "Manager", 1220L);
-        Item itemTest = new Item("Valeriy", "Builder", 1312L);
+        Item item = new Item("Igor", "Manager");
+        Item itemTest = new Item("Valeriy", "Builder");
         tracker.add(item);
         tracker.add(itemTest);
         tracker.delete("Igor");
@@ -38,8 +38,8 @@ public class TrackerTest {
     public void  findAllItems() {
         Tracker tracker = new Tracker();
         Item[] items = new Item[2];
-        Item item = new Item("Igor", "Manager", 1220L);
-        Item itemTest = new Item("Valeriy", "Builder", 1312L);
+        Item item = new Item("Igor", "Manager");
+        Item itemTest = new Item("Valeriy", "Builder");
         tracker.add(item);
         tracker.add(itemTest);
         items = tracker.findAll();
@@ -50,8 +50,8 @@ public class TrackerTest {
     public void  findItemByName() {
         Tracker tracker = new Tracker();
         Item[] items = new Item[2];
-        Item item = new Item("Igor", "Manager", 1220L);
-        Item itemTest = new Item("Valeriy", "Builder", 1312L);
+        Item item = new Item("Igor", "Manager");
+        Item itemTest = new Item("Valeriy", "Builder");
         tracker.add(item);
         tracker.add(itemTest);
         items = tracker.findByName("Valeriy");
@@ -59,17 +59,13 @@ public class TrackerTest {
         assertThat(name, is(items[0].getName()));
     }
     @Test
-    public void  findItemById() {
+    public void  findItemByIds() {
         Tracker tracker = new Tracker();
-        Item[] items = new Item[2];
-        Item item = new Item("Igor", "Manager", 1220L);
-        Item itemTest = new Item("Valeriy", "Builder", 1312L);
+        Item item = new Item("Igor", "Manager");
+        Item itemTest = new Item("Valeriy", "Builder");
         tracker.add(item);
         tracker.add(itemTest);
-        items[0] = tracker.findById(tracker.items[0].getId());
-        String id = tracker.items[0].getId();
-        assertThat(id, is(items[0].getId()));
+        assertThat(tracker.findAll()[0].getId(), is(item.getId()));
     }
 
 }
- */
