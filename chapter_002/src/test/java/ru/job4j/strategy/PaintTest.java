@@ -9,6 +9,17 @@ import static org.junit.Assert.assertThat;
  * Created by User on 22.04.2018.
  */
 public class PaintTest {
+
+    private final PrintStream stdout = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    public void loadOutput() {
+        System.setOut(new PrintStream(this.out));
+    }
+
+    public void backOutput() {
+        System.setOut(this.stdout);
+    }
     @Test
     public void whenDrawSquare() {
         // получаем ссылку на стандартный вывод в консоль.

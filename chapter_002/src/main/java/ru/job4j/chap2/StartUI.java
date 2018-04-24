@@ -11,16 +11,15 @@ public class StartUI {
 	final String EXIT = "6";
 
 	private Input input;
-
-	public StartUI(Input input) {
+	private Tracker tracker;
+	public StartUI(Input input, Tracker tracker) {
 		this.input = input;
+		this.tracker = tracker;
 	}
-	public StartUI() {
-	}
+
 
 
 	public void start() {
-		Tracker tracker = new Tracker();
 		ConsoleInput ci = new ConsoleInput();
 
 		boolean exitProgram = true;
@@ -29,7 +28,6 @@ public class StartUI {
 			String num = input.ask(showActions());
 			switch (num) {
      			case ADD:
-     					//Item unit = createItem();
 						Item unit = createItems();
 						tracker.add(unit);
 						break;
@@ -41,21 +39,22 @@ public class StartUI {
 						}
 						break;
 				case EDIT:
-						System.out.println("Please, enter delete name");
-						tracker.replace(ci.ask(), createItem());
+						//System.out.println("Please, enter delete name");
+						tracker.replace(input.ask(""), createItems());
 						break;
 				case DELETE:
-						System.out.println("Please, enter delete name");
-						tracker.delete(ci.ask());
+						//System.out.println("Please, enter delete name");
+						//tracker.delete(ci.ask());
+						tracker.delete(input.ask(""));
 						break;
 				case FINDID:
 						System.out.println("Please, enter description");
-						Item itTest = tracker.findById(ci.ask());
+						Item itTest = tracker.findById(input.ask(""));
 						System.out.println(itTest.getName() + " " + itTest.getDescription() + " " + itTest.getId());
 						break;
 				case FINDNAME:
 						System.out.println("Please, enter name");
-						Item[] it = tracker.findByName(ci.ask());
+						Item[] it = tracker.findByName(input.ask(""));
 						for (Item item : it) {
 							System.out.println(item.getName() + " " + item.getDescription() + " " + item.getId());
 						}
@@ -76,18 +75,12 @@ public class StartUI {
 		+ "6. Exit Program" + "\n" + "Select:";
 		return select;
 	}
-	private Item createItem() {
-		ConsoleInput ci = new ConsoleInput();
-		String name = ci.ask("Please, enter name");
-		String description = ci.ask("Please, enter description");
-		return new Item(name, description);
-	}
 	private Item createItems() {
 		String name = input.ask("Please, enter name");
 		String description = input.ask("Please, enter description");
 		return new Item(name, description);
 	}
 	//public static void main(String[] args) {
-	//new StartUI().start();
+	//	new StartUI(new ConsoleInput(), new Tracker()).start();
 	//}
 }
