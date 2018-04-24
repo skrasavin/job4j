@@ -20,8 +20,6 @@ public class StartUI {
 
 
 	public void start() {
-		ConsoleInput ci = new ConsoleInput();
-
 		boolean exitProgram = true;
 		while (exitProgram) {
 			//String num = ci.ask(new StartUI().showActions());
@@ -80,7 +78,7 @@ public class StartUI {
 		String description = input.ask("Please, enter description");
 		return new Item(name, description);
 	}
-	//public static void main(String[] args) {
-	//	new StartUI(new ConsoleInput(), new Tracker()).start();
-	//}
+	public static void main(String[] args) {
+		new StartUI(new ConsoleInput(), new Tracker()).start();
+	}
 }
