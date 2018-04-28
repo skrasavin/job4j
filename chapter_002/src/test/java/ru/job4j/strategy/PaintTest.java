@@ -42,7 +42,6 @@ public class PaintTest {
                                 .toString()
                 )
         );
-        this.backOutput();
     }
     @Test
     public void whenDrawTriangle() {
