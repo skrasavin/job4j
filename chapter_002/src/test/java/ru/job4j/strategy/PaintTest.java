@@ -19,18 +19,16 @@ public class PaintTest {
 
     @Before
     public void loadOutput() {
-        //System.out.println("execute before method");
+        System.out.println("execute before method");
         System.setOut(new PrintStream(this.out));
     }
-
     @After
     public void backOutput() {
         System.setOut(this.stdout);
-        //System.out.println("execute after method");
+        System.out.println("execute after method");
     }
     @Test
     public void whenDrawSquare() {
-        this.loadOutput();
         new Paint().draw(new Square());
         assertThat(
                 new String(this.out.toByteArray()),
