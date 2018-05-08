@@ -2,7 +2,50 @@ package ru.job4j.chap2;
 
 public class StartUI {
 
-	final String ADD = "0";
+	private Input input;
+
+	public StartUI(Input input) {
+		this.input = input;
+	}
+	public void init() {
+		Tracker tracker = new Tracker();
+		MenuTracker menu = new MenuTracker(this.input, tracker);
+		menu.fillActions();
+		do {
+			menu.show();
+			int key = Integer.valueOf(input.ask("Select:"));
+			menu.select(key);
+		} while (!"y".equals(this.input.ask("Exit?(y):")));
+	}
+
+	public static void main(String[] args) {
+		Input input = new ConsoleInput();
+		new StartUI(input).init();
+	}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**	final String ADD = "0";
 	final String SHOWITEMS = "1";
 	final String EDIT = "2";
 	final String DELETE = "3";
@@ -82,3 +125,4 @@ public class StartUI {
 		new StartUI(new ConsoleInput(), new Tracker()).start();
 	}
 }
+ */

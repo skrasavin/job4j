@@ -11,14 +11,14 @@ public class MenuTracker {
 		this.tracker = tracker;
 	}
 	public void fillActions() {
-		 this.actions[0] = new AddItem(this.input, this.tracker);
+		 this.actions[0] = new AddItem();
 	}
 	public void select(int key) {
 		this.actions[key].execute(this.input, this.tracker);
 	}
 	public void show() {
-		for(UserAction action : this.actions) {
-			if(action != null) {
+		for (UserAction action : this.actions) {
+			if (action != null) {
 				System.out.println(action.info());
 			}
 		}

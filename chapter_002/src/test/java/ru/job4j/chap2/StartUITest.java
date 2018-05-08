@@ -1,3 +1,5 @@
+/**
+
 package ru.job4j.chap2;
 
 import org.junit.After;
@@ -78,3 +80,4 @@ public class StartUITest {
         assertThat(new String(this.out.toByteArray()), is("test2 desc " + tracker.items[0].getId() + "\r\n"));
     }
 }
+ */
