@@ -29,9 +29,9 @@ public class Tracker {
 	/**
 	 *смена заявки на другую после ввовда имени и новой заявки.
 	 */
-	public void replace(String name, Item item) {
+	public void replace(String id, Item item) {
 		for (int index = 0; index != this.position; index++) {
-			if (items[index].getName().equals(name)) {
+			if (items[index].getId().equals(id)) {
 				items[index] = item;
 				break;
 			}
