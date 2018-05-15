@@ -20,7 +20,7 @@ public class StartUI {
 		} while (!"y".equals(this.input.ask("Exit?(y):")));
 	}
 	public static void main(String[] args) {
-		Input input = new ValidateInput();
+		Input input = new ValidateInput(new ConsoleInput());
 		new StartUI(input).init();
 	}
 
