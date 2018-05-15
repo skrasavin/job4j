@@ -2,6 +2,7 @@ package ru.job4j.chap2;
 
 public class StartUI {
 
+	private int[] ranges = new int[] {1, 2, 3, 4, 5, 6, 7};
 	private Input input;
 
 	public StartUI(Input input) {
@@ -13,13 +14,13 @@ public class StartUI {
 		menu.fillActions();
 		do {
 			menu.show();
-			int key = Integer.valueOf(input.ask("Select:"));
-			menu.select(key);
+			//int key = Integer.valueOf(input.ask("Select:"));
+			//menu.select(key);
+			menu.select(input.ask("select", ranges));
 		} while (!"y".equals(this.input.ask("Exit?(y):")));
 	}
-
 	public static void main(String[] args) {
-		Input input = new ConsoleInput();
+		Input input = new ValidateInput();
 		new StartUI(input).init();
 	}
 
