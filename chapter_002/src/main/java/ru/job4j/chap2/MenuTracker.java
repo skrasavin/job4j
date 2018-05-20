@@ -42,14 +42,14 @@ public class MenuTracker {
 		this.input = input;
 		this.tracker = tracker;
 	}
-	public void fillActions() {
+	public void fillActions(StartUI ui) {
 		 this.actions[1] = this.new AddItem();
 		 this.actions[2] = new MenuTracker.ShowItems();
 		 this.actions[3] = new EditItem();
 		 this.actions[4] = new DeleteItem();
 		 this.actions[5] = this.new FindItemById();
 		 this.actions[6] = this.new FindItemByName();
-		 this.actions[7] = new MenuTracker.ExitProgram();
+		 this.actions[7] = new MenuTracker.ExitProgram(ui);
 	}
 	public void select(int key) {
 		this.actions[key].execute(this.input, this.tracker);
@@ -115,11 +115,17 @@ public class MenuTracker {
 		}
 	}
 	private static class ExitProgram implements UserAction {
+
+		public final StartUI ui;
+
+		ExitProgram(StartUI ui) {
+			this.ui = ui;
+		}
 		public int key() {
 			return 7;
 		}
 		public void execute(Input input, Tracker tracker) {
-			System.exit(0);
+			this.ui.stop();
 		}
 		public String info() {
 			return String.format("%s. %s.", this.key(), "Exit Program");
