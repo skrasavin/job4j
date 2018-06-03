@@ -1,4 +1,5 @@
 package ru.job4j.coffee;
+import java.util.Arrays;
 
 public class CoffeeMaker{
 
@@ -10,37 +11,33 @@ public class CoffeeMaker{
 	private int[] changes(int value, int price) {
 		
 		int amount = value - price;
-		int[] container = new int[3];
+		int[] container = new int[20];
 		int counter = 0;
-		boolean stop = true;
-		
-		while(stop) {
+
+		for (int a = 0; amount != 0 ; a++) {
 			if(amount >= tenRubles) {
-				amount = amount - tenRubles;
+				amount -= tenRubles;
 				container[counter++] = tenRubles;
-			}if (amount >= fiveRubles) {
-				amount = amount - fiveRubles;
+			} else if (amount >= fiveRubles) {
+				amount -= fiveRubles;
 				container[counter++] = fiveRubles;
-			}if (amount >= twoRubles) {
-				amount = amount - twoRubles;
+			} else if (amount >= twoRubles) {
+				amount -= twoRubles;
 				container[counter++] = twoRubles;
-			}if (amount >= oneRubles) {
-				amount = amount - oneRubles;
+			} else if (amount >= oneRubles) {
+				amount -= oneRubles;
 				container[counter++] = oneRubles;
 			}
 		}
-		return container;
+		int[] contain = Arrays.copyOf(container, counter);
+		return contain;
 	}
 		public static void main(String[] args) {
 		CoffeeMaker cm = new CoffeeMaker();
-		int[] result = cm.changes(50, 35);
+		int[] result = cm.changes(50, 15);
 		for(int res : result) {
 			System.out.println(res);
-
-
-
 
 		}
 	}
 }
-	
